@@ -1,3 +1,4 @@
+import './App.css'
 // npm modules
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
@@ -5,7 +6,6 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 // page components
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
@@ -35,9 +35,10 @@ const App = () => {
 
   return (
     <>
+    <div className='App'>
       <NavBar user={user} handleLogout={handleLogout} />
+      <main>
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -63,6 +64,8 @@ const App = () => {
           }
         />
       </Routes>
+      </main>
+      </div>
     </>
   )
 }
